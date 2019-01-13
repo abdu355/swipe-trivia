@@ -16,6 +16,7 @@
     },
     "ios": {
       "supportsTablet": true
-    }
+    },
+    "githubUrl": "https://github.com/abdu355/swipe-trivia"
   }
 }
