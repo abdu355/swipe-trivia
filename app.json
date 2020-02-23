@@ -4,7 +4,7 @@
     "description": "Infinite trivia",
     "slug": "swipe-trivia",
     "privacy": "public",
-    "sdkVersion": "32.0.0",
+    "sdkVersion": "33.0.0",
     "version": "1.0.0",
     "orientation": "portrait",
     "primaryColor": "#cccccc",
@@ -17,6 +17,10 @@
     "ios": {
       "supportsTablet": true
     },
-    "githubUrl": "https://github.com/abdu355/swipe-trivia"
+    "githubUrl": "https://github.com/abdu355/swipe-trivia",
+    "platforms": [
+      "ios",
+      "android"
+    ]
   }
 }
