@@ -1,11 +1,12 @@
 export const CAT_ENTRIES = [
+
   {
     title: "Whatever",
     subtitle: "",
     illustration:
-      "https://404store.com/2017/12/08/random_character_1_by_mnrart-d5odgq0.gif",
+      "https://i.giphy.com/media/3o85xGr7NxBC4eGTte/giphy.webp",
     unlocked_illustration:
-      "https://404store.com/2017/12/08/random_character_1_by_mnrart-d5odgq0.gif",
+      "https://i.giphy.com/media/3o85xGr7NxBC4eGTte/giphy.webp",
     value: ""
   },
   {

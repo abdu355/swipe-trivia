@@ -8,18 +8,18 @@
     "eject": "expo eject"
   },
   "dependencies": {
-    "@expo/vector-icons": "^10.0.6",
+    "@expo/vector-icons": "^12.0.0",
     "axios": "^0.17.1",
-    "expo": "^33.0.0",
+    "expo": "^42.0.0",
     "free-google-image-search": "^1.0.0",
-    "react": "16.6.0",
-    "react-native": "https://github.com/expo/react-native/archive/sdk-33.0.0.tar.gz",
+    "react": "16.13.1",
+    "react-native": "https://github.com/expo/react-native/archive/sdk-42.0.0.tar.gz",
     "react-native-animatable": "^1.2.4",
     "react-native-easy-grid": "^0.2.0",
     "react-native-elements": "^0.18.4",
     "react-native-snap-carousel": "^3.4.0"
   },
   "devDependencies": {
-    "babel-preset-expo": "^5.0.0"
+    "babel-preset-expo": "8.3.0"
   }
 }
