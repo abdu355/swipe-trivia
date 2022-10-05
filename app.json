@@ -20,6 +20,18 @@
     "platforms": [
       "ios",
       "android"
-    ]
+    ],
+    "extra": {
+      "eas": {
+        "projectId": "e7990c20-d462-11e7-a316-fd99722626e5"
+      }
+    },
+    "runtimeVersion": {
+      "policy": "sdkVersion"
+    },
+    "android": {},
+    "updates": {
+      "url": "https://u.expo.dev/e7990c20-d462-11e7-a316-fd99722626e5"
+    }
   }
 }
