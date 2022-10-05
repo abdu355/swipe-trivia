@@ -14,7 +14,8 @@
       "backgroundColor": "#ffffff"
     },
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "bundleIdentifier": "com.abdu355.swipetrivia"
     },
     "githubUrl": "https://github.com/abdu355/swipe-trivia",
     "platforms": [
@@ -29,7 +30,9 @@
     "runtimeVersion": {
       "policy": "sdkVersion"
     },
-    "android": {},
+    "android": {
+      "package": "com.abdu355.swipetrivia"
+    },
     "updates": {
       "url": "https://u.expo.dev/e7990c20-d462-11e7-a316-fd99722626e5"
     }

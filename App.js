@@ -14,8 +14,8 @@ import {
   Platform,
   Modal,
   AsyncStorage,
-  NetInfo
 } from 'react-native';
+import { NetInfo } from '@react-native-community/netinfo'
 import { Card, Button, Icon, Divider } from 'react-native-elements';
 import axios from 'axios';
 import { Col, Row, Grid } from 'react-native-easy-grid';
@@ -57,21 +57,21 @@ export default class App extends React.Component {
   handleFirstConnectivityChange(isConnected) {
     //this.changeStatus(isConnected ? true : false);
     //console.log('Then, is ' + (isConnected ? 'online' : 'offline'));
-    NetInfo.removeEventListener(
-      'connectionChange',
-      this.handleFirstConnectivityChange
-    );
+    // NetInfo.removeEventListener(
+    //   'connectionChange',
+    //   this.handleFirstConnectivityChange
+    // );
   }
   async componentDidMount() {
-    NetInfo.addEventListener(
-      'connectionChange',
-      this.handleFirstConnectivityChange
-    );
+    // NetInfo.addEventListener(
+    //   'connectionChange',
+    //   this.handleFirstConnectivityChange
+    // );
     //check internet
-    NetInfo.getConnectionInfo().then(isConnected => {
-      this.setState({ internetConnected: isConnected ? true : false });
-      //console.log('Then, is ' + (isConnected ? 'online' : 'offline'));
-    });
+    // NetInfo.getConnectionInfo().then(isConnected => {
+    //   this.setState({ internetConnected: isConnected ? true : false });
+    //   //console.log('Then, is ' + (isConnected ? 'online' : 'offline'));
+    // });
 
     //this.getMoreCards();
     try {
@@ -92,10 +92,10 @@ export default class App extends React.Component {
   }
   componentWillUnmount() {
     //remove network listener
-    NetInfo.removeEventListener(
-      'connectionChange',
-      this.handleFirstConnectivityChange
-    );
+    // NetInfo.removeEventListener(
+    //   'connectionChange',
+    //   this.handleFirstConnectivityChange
+    // );
   }
 
   async saveScore() {
@@ -208,9 +208,9 @@ export default class App extends React.Component {
     }
   }
   getCardImage() {
-    if (Platform.Version <= 23 && Platform.OS != 'ios') {
-      return;
-    }
+    // if (Platform.Version <= 23 && Platform.OS != 'ios') {
+    //   return;
+    // }
     return {
       uri: 'https://i.imgur.com/BkdZTlPl.jpg'
     };
@@ -218,15 +218,22 @@ export default class App extends React.Component {
   //will be called when Deck component is rendered, for each data item
   renderCard(item) {
     return (
-      <Card
-        imageProps={{ resizeMode: 'contain' }}
-        imageStyle={this.getImageStyle()}
-        containerStyle={this.getCardStyle()}
-        key={item.question}
-        title={item.category}
-        image={this.getCardImage()}
-      >
-        <Text
+      // <Card
+      //   imageProps={{ resizeMode: 'contain' }}
+      //   imageStyle={this.getImageStyle()}
+      //   containerStyle={this.getCardStyle()}
+      //   key={item.question}
+      //   title={item.category}
+      //   image={this.getCardImage()}
+      // >
+        <Card key={item.question} imageProps={{ resizeMode: 'contain' }} containerStyle={this.getCardStyle()}>
+          <Card.Title>{item.category}</Card.Title>
+          <Card.Divider />
+          <Card.Image
+            style={this.getImageStyle()}
+            source={this.getCardImage()}
+          />
+          <Text
           style={{
             height: 70,
             fontWeight: 'bold',
