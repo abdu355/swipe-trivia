@@ -110,6 +110,18 @@ export default class App extends React.Component {
       alert('Could Not Save Score');
     }
   }
+  async resetScore() {
+    try {
+      await AsyncStorage.setItem(
+        'playerPoints2',
+        JSON.stringify(0)
+      );
+      this.setState({ score: 0 });
+    } catch (error) {
+      //error saving data
+      alert('Could Not Reset Score');
+    }
+  }
   checkIndex(snappedItemIndex) {
     let success = unlockedItems.includes(snappedItemIndex);
     //console.log('Sucess:', success + ' ' + snappedItemIndex);
@@ -138,8 +150,7 @@ export default class App extends React.Component {
     // );
     axios
       .get(
-        `https://opentdb.com/api.php?amount=5&category=${cat}&difficulty=${
-          diff
+        `https://opentdb.com/api.php?amount=5&category=${cat}&difficulty=${diff
         }&type=boolean`
       )
       .then(response => {
@@ -226,14 +237,14 @@ export default class App extends React.Component {
       //   title={item.category}
       //   image={this.getCardImage()}
       // >
-        <Card key={item.question} imageProps={{ resizeMode: 'contain' }} containerStyle={this.getCardStyle()}>
-          <Card.Title>{item.category}</Card.Title>
-          <Card.Divider />
-          <Card.Image
-            style={this.getImageStyle()}
-            source={this.getCardImage()}
-          />
-          <Text
+      <Card key={item.question} imageProps={{ resizeMode: 'contain' }} containerStyle={this.getCardStyle()}>
+        <Card.Title>{item.category}</Card.Title>
+        <Card.Divider />
+        <Card.Image
+          style={this.getImageStyle()}
+          source={this.getCardImage()}
+        />
+        <Text
           style={{
             height: 70,
             fontWeight: 'bold',
@@ -383,26 +394,40 @@ export default class App extends React.Component {
             />
           </Row>
           <Row
-            size={1}
+            size={2}
             style={{
               marginTop: SCREEN_HEIGHT / 2,
               justifyContent: 'center',
-              alignItems: 'center'
+              alignItems: 'center',
             }}
           >
             <Button
-              borderRadius={40}
-              raised
               buttonStyle={{
                 height: this.getBtnHeight(),
-                width: SCREEN_WIDTH / 2
+                width: SCREEN_WIDTH / 3,
+                padding: 10,
+                borderRadius: 40,
+                backgroundColor: '#637b97',
               }}
               onPress={() => {
                 this.saveScore();
                 this.setState({ selected: false, data: [], noAnim: false });
               }} //requires binding renderNoMoreCards to this component when sending it as a prop
-              backgroundColor="#637b97"
               title="Back"
+            />
+            <Button      
+              buttonStyle={{
+                height: this.getBtnHeight(),
+                width: SCREEN_WIDTH / 3,
+                padding: 10,
+                backgroundColor: '#8862f0',
+                borderRadius: 40
+              }}
+              onPress={() => {
+                this.resetScore();
+                this.setState({ selected: false, data: [], noAnim: false });
+              }} //requires binding renderNoMoreCards to this component when sending it as a prop
+              title="Reset Score"
             />
           </Row>
           <Row
